@@ -1,0 +1,19 @@
+body
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 200px;
+    height: 400px;
+    text-align: center;
+}
+
+#uitkomst
+{
+    border: solid 1px gray;
+    height: 20vh;
+    width: 21vw;
+    overflow: scroll;
+}
+
+/* vh is en vw zijn het beste om de gebruiken */

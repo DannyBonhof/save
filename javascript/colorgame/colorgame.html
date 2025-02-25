@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="colorgame.css">
+</head>
+<body>
+<div id="display">
+    <div id="settings">
+        <h1>Settings:</h1>
+        <h2>Aantal kleuren:</h2>
+        <h2>Aantal loops:</h2>
+        <h2>Aantal sec/loop:</h2>
+        <h2>wijzig basiskleur per loop</h2>
+    </div>
+    <div class="hokjes">
+        <div class="hokje" id="hok1"></div>
+        <div class="hokje" id="hok2"></div>
+        <div class="hokje" id="hok3"></div>
+        <div class="hokje" id="hok4"></div>
+        <div class="hokje" id="hok5"></div>
+        <div class="hokje" id="hok6"></div>
+        <div class="hokje" id="hok7"></div>
+        <div class="hokje" id="hok8"></div>
+        <div class="hokje" id="hok9"></div>
+
+        <div class="basiskleur" id="basis"></div>
+
+        <div id="button">
+            <button onclick="myFunction()">plaats kleuren</button>
+            <button onclick="start()">start</button>
+        </div>
+
+    </div>
+    <div id="stats">
+        
+    </div>
+</div>
+
+<script>
+
+let sec = 0;
+let mijnInterval = 0;
+// let colors = ["red", "green", "blue", "yellow", "cyan", "magenta", "orange", "lime", "dodgerblue"];
+
+// function myFunction() {
+//   document.getElementById("demo").innerHTML = 
+
+// colors.forEach((color, index) => {  
+//   document.getElementById(`hok${index + 1}`).style.backgroundColor = color;
+// });
+
+// }
+
+function start()
+{
+    mijnInterval = setInterval(secTeller, 1000);
+    document.getElementById("start").disabled = true;
+    document.getElementById("stop").disabled = false;
+
+}
+function stop()
+{
+    if (mijnInterval != 0){
+        clearInterval(mijnInterval);
+        mijnInterval = 0;
+        document.getElementById("stop").disabled = true;
+        document.getElementById("start").disabled = false;
+    }
+
+
+}
+function reshuffleTheColors()
+{
+    const colors= ["red","blue","lime","orange","maroon","aqua","navy","lightgreen","pink"];
+    shuffle(colors);
+
+    for (let i = 0;  i < 9; i++) {
+        let divid = i+1;
+        document.getElementById("hok" + divid).style.backgroundColor = colors[i];
+    }
+}
+
+function secTeller() {
+    reshuffleTheColors();
+}
+
+
+
+</script>
+
+
+
+</body>
+</html>

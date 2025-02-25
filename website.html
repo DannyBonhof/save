@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <style>
+        div {
+            background-color: darkblue;
+            color: white;
+        }
+
+        #main {
+            background-color: white;
+            color: black;
+            width:100%;
+            margin:auto;
+            display: flex;
+            flex-direction: row;
+            height:80vh;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        #header {
+            display: flex;
+            justify-content: center;
+            height: 15vh;
+            font-size: 100px;
+            background-color:blue
+        }
+
+        #nav {
+            display: flex;
+            padding: 1px;
+            background-color: darkblue;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            width: 100px;
+            border: 1px solid cyan;
+            border-radius: 6px;
+            color: yellow     ;
+            background-color: blue;
+            margin: 2px 0 2px 10px
+        }
+
+        .sidebar {
+            display: flex;
+            justify-content: center;
+            background-color: lightblue;
+            color: black;
+            width: 15%;
+        }
+
+        .content {
+            flex:6;
+            background-color: white;
+            color: black;
+        }
+        
+        #footer {
+            display: flex;
+            justify-content: flex-end;
+            height: 5vh;
+            width: 99%;
+            font-size: 30px;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+        <div id="container">
+            <div id="header">header</div>
+            <div id="nav">
+            <div class="menu">menu 1</div>
+            <div class="menu">menu 2</div>
+            <div class="menu">menu 3</div>
+            <div class="menu">menu 4</div>
+        </div>
+       
+
+        <div id="main"> 
+            <div class="sidebar">sidebar left</div>
+            <div class="content">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt quam accusantium quos, tenetur, culpa ea nam provident veritatis nostrum distinctio maiores ex quasi nobis eius laboriosam magni! Quia, quaerat quibusdam?
+            </div>
+            <div class="sidebar">sidebar left</div>
+            </div>
+        <div id="footer">footer</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <style>
+        div {
+            background-color: greenyellow;
+            color: white;
+        }
+
+        #main {
+            background-color: white;
+            color: black;
+            width:100%;
+            margin:auto;
+            display: flex;
+            flex-direction: row;
+            height:80vh;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            height: 18vh;
+        }
+
+        #header {
+            display: flex;
+            justify-content: center;
+            height: 15vh;
+            font-size: 100px;
+            background-color: darkgreen
+        }
+
+
+        .sidebar {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            color: black;
+            width: 15%;
+        }
+
+        .content {
+            flex:6;
+            background-color: white;
+            color: black;
+            border: 10px;
+            border-color: yellowgreen;
+        
+        }
+        
+        #footer {
+            display: flex;
+            justify-content: flex-end;
+            height: 3vh;
+            width: 100%;
+            font-size: 30px;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+        <div id="container">
+            <div id="header">Kerstborrel</div>
+        </div>
+       
+        <div id="main"> 
+            <div class="sidebar">sidebar left</div>
+            <div class="content">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt quam accusantium quos, tenetur, culpa ea nam provident veritatis nostrum distinctio maiores ex quasi nobis eius laboriosam magni! Quia, quaerat quibusdam?
+            </div>
+            <div class="sidebar">sidebar right</div>
+            </div>
+        <div id="footer"></div>
+    </div>
+</body>
+</html>

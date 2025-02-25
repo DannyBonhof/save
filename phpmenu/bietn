@@ -1,0 +1,47 @@
+<?php 
+include("DatabaseConn.php");
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <a href="insert.php">Insert</a>
+
+    <?php 
+    $sql = "SELECT * FROM ....";
+    $result = mysqli_query($conn, $sql);
+
+    echo "<table>";
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>" . $row['....'] . "</td>" . "<td>" . $row['....'] . "</td>";
+        echo "</tr";
+
+    }
+    echo "</table>";
+
+    mysqli_close($conn);
+    ?>
+</body>
+</html>
+<?php
+$db_server = "localhost";
+$db_user = "root";
+$db_pass = "";
+$db_name = "";
+
+try{
+    $conn = mysqli_connect($db_server,
+ $db_user,
+  $db_pass,
+  $db_name);
+}
+catch(mysqli_sql_exception){
+    echo"could not conect";
+}
+?>

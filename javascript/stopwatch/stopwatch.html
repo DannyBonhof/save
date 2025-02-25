@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stopwatch.css">
+
+</head>
+
+<body>
+    <div>
+    <div id="display"></div>
+    <div id="watch"><img src="watch.png" alt="watch" width="250" height="250"></div>
+    <div id="scherm"></div>
+    <div id="start"></div>
+    <div id="reset"></div>
+    <div id="light" onclick="veranderAchtergrond()"></div>
+    <!-- <button onclick="fStart()">start</button>
+    <button onclick="fStop()">stop</button>
+    <button onclick="fReset()">reset</button> -->
+
+    <script>
+
+    let originalcolor = "white";
+    let newcolor = "darkgray";
+    let msSec = 0;
+    let sec = 0;
+    let min = 0;
+    let mijnInterval;
+    let isStarted = false;
+
+    function veranderAchtergrond() {
+        let div = document.getElementById("scherm");
+
+        if (div.style.backgroundColor === newcolor) {
+           div.style.backgroundColor = originalcolor;
+        }
+        else {
+            div.style.backgroundColor =newcolor;
+        }
+
+    }
+    
+    function mijnFunctie() {
+        alert("Div is geklikt!");
+    }   
+    document.getElementById("start").addEventListener("click", fToggle);
+
+    function mijnFunctie() {
+        alert("Div is geklikt!");
+    }
+    document.getElementById("reset").addEventListener("click", fReset);
+
+
+    function fToggle() {
+        if(isStarted){
+            // stop the timer
+            fStop();
+                    
+            document.getElementById("start").innerHTML = ""; // set the button to the start button
+            isStarted = false;
+        }else{
+            // start the timer
+            fStart();
+
+            document.getElementById("start").innerHTML = ""; // set the button to the stop button
+            isStarted = true;
+        }
+    }
+
+        
+
+    function fStart() {
+        fStop();
+        mijnInterval = setInterval(msSecTeller, 10);
+    }
+    function fStop() {
+        clearInterval(mijnInterval);
+    }
+    function fReset() {
+        msSec = 0;
+        sec = 0;
+        min = 0;
+        fStop();
+        setDisplay();
+    }
+
+    function msSecTeller() {
+        msSec = msSec + 1;
+        if (msSec >= 100) {
+            msSec = 0;
+            sec += 1;
+        }
+        if (sec >= 60) {
+            sec = 0;
+            min += 1;
+        }
+        setDisplay();
+    }
+    function setDisplay() {
+        let minutes = "";
+        let seconds = "";
+        let miliSeconds = "";
+
+        if(min < 10){
+            minutes = `0${min}`
+        }else{
+            minutes = `${min}`
+        }
+
+        if(sec < 10){
+            seconds = `0${sec}`
+        }else{
+            seconds = `${sec}`
+        }
+
+        if(msSec < 10){
+            miliSeconds = `0${msSec}`
+        }else{
+            miliSeconds = `${msSec}`
+        }
+
+        document.getElementById("scherm").innerHTML = `${minutes} : ${seconds} : ${miliSeconds}`;
+    }
+
+        // setDisplay();
+    </script>
+</body>
+
+</html>

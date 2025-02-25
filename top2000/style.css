@@ -1,0 +1,19 @@
+
+#header, #footer {
+    background-color: navy;
+    color: white;
+}
+
+#content {
+    background-color: yellow;
+}
+
+#menu{
+    display:flex;
+}
+
+#menu div{
+    border: 1px solid gray;
+    width: 200px;
+    border-radius: 4px;
+}
