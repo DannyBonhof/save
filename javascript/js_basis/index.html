@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="inputText" placeholder="Typ hier iets...." onkeyup="controleerInput()">
+        <button onclick="verstuur()">verstuur</button>
+    </div>
+    <div id="output"></div>
+</body>
+</html>
+
+<script>
+    function verstuur() {
+        let inputValue = document.getElementById("inputText").value;
+        document.getElementById("output").innerText = inputValue;
+    }
+
+    function controleerInput() {
+        let naam = document.getElementById("inputText").value;
+        console.log("naam: " + naam);
+        let lengte = naam.length
+        console.log("lengte: " + lengte);
+    }
+</script>
