@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JSON JS20 Opdracht</h1>
+    <h4>Array manier</h4>
+    <div id="arrayManier"></div>
+    <h4>Json manier</h4>
+    <div id="jsonManier"></div>
+</body>
+
+<script>
+// standaard array
+let studentenA = [
+    ["Jan", "", "Jansen"],
+    ["Piet", "de", "Grote"],
+    ["danny", "", "bonhof"],
+    ["peter", "", "baksteen"]
+];
+//console.log("De naam van de tweede persoon is: " + studentenA[1][0] + " "+ studentenA[1][1] + " "+ studentenA[1][2]);
+
+let arrayManier = document.getElementById("arrayManier");
+arrayManier.innerHTML = "hier moeten de gegevens komen";
+
+
+
+// JSON:
+let studentenB = [
+    { "voornaam":"Jan", "tv":"", "achternaam":"Jansen" },
+    { "voornaam":"Piet", "tv":"de", "achternaam":"Grote"},
+    { "voornaam":"Danny", "tv":"", "achternaam":"Bonhof"}
+];
+//console.log("De naam van de tweede persoon is: " + student.voornaam + " "+ student.tv + " "+ student.achternaam);
+
+tekst = "";
+for (let i = 0; i < studentenB.length; i++) {
+    const student = studentenB[i];
+    tekst += student.voornaam + " " + student.tv + " "+ student.achternaam + "<br>";
+}
+
+let jsonManier = document.getElementById("jsonManier");
+jsonManier.innerHTML = tekst;
+
+</script>
+
+</html>

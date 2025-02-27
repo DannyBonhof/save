@@ -10,15 +10,76 @@
     <div id="form">
         <h1>Test formulier</h1>
         <div> 
-            <label for="voornaam">*Naam:</label>
-            <input type="text" id="voornaam" placeholder="Voornaam">
-            <input type="text" id="achternaam" placeholder="Achternaam">
+            <label for="voornaam">*Naam/achternaam:</label>
+            <input type="text" id="voornaam" placeholder="Voornaam" onblur="naam()">
+            <input type="text" id="achternaam" placeholder="Achternaam" onblur="naam()">
         </div>
-        <h2>*adres:</h2>
-        <h2>PC Plaats:</h2>
-        <h2>Telefoon:</h2>
-        <h2>Email:</h2>
-        <h2>Geslacht:</h2>
+        <div>
+            <label for="voornaam">*adres:</label>
+            <input type="text" id="adres" placeholder="adres" onblur="postcode()">
+        </div>
+        <div>
+            <label for="voornaam">*PC Plaats:</label>
+            <input type="text" id="postcode" placeholder="postcode" onblur="postcode()">
+            <input type="text" id="plaats" placeholder="plaats" onblur="postcode()">
+        </div>
+        <div>
+            <label for="voornaam">telefoon:</label>
+            <input type="text" id="telefoon" placeholder="telefoon">
+        </div>
+        <div>
+            <label for="voornaam">Email:</label>
+            <input type="text" id="email" placeholder="email">
+        </div>
+        <div>
+            <label for="voornaam">geslacht:</label>
+            <label class="container">Man
+                <input name="geslacht" type="radio">
+                <span class="checkmark"></span>
+              </label>
+        
+              <label class="container">Vrouw
+                <input name="geslacht" type="radio">
+                <span class="checkmark"></span>
+              </label>
+        </div>
+        <div>
+            <label for="voornaam">boyband</label>
+            <input type="text" id="email" placeholder="email">
+        </div>
+        <div>
+            <label for="voornaam">Geb.datum:</label>
+            <input type="text" id="email" placeholder="email">
+        </div>
+        <div>
+            <button>verstuur</button>
+        </div>
     </div>
 </body>
+<script>
+
+    function naam()
+    {
+      
+       let an = document.getElementById("achternaam");
+       if(an.value == "bonhof")
+       {
+            an.style.backgroundColor = "green";
+       }
+    }
+
+    function postcode()
+    {
+        let postcode = document.getElementById("postcode");
+        if(postcode.value == "")
+        {
+            postcode.style.backgroundColor = "red";
+        }
+        else
+        {
+            postcode.style.backgroundColor = "green";
+
+        }
+    }
+</script>
 </html>

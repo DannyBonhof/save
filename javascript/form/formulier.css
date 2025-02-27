@@ -1,5 +1,9 @@
 #form{
     border: solid 1px black;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    flex-direction: column;
 }
 
 h2{
@@ -8,4 +12,13 @@ h2{
 
 h1{
     font-size: 20px;
+}
+
+input{
+    display: flex;
+
+}
+
+label{
+    display: flex;
 }
