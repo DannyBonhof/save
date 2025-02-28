@@ -11,28 +11,28 @@
         <h1>Test formulier</h1>
         <div> 
             <label for="voornaam">*Naam/achternaam:</label>
-            <input type="text" id="voornaam" placeholder="Voornaam" onblur="naam()">
-            <input type="text" id="achternaam" placeholder="Achternaam" onblur="naam()">
+            <input type="text" id="voornaam" placeholder="Voornaam" onblur="voornaam()">
+            <input type="text" id="achternaam" placeholder="Achternaam" onblur="achternaam()">
         </div>
         <div>
-            <label for="voornaam">*adres:</label>
-            <input type="text" id="adres" placeholder="adres" onblur="postcode()">
+            <label for="adres">*adres:</label>
+            <input type="text" id="adres" placeholder="adres" onblur="adres()">
         </div>
         <div>
-            <label for="voornaam">*PC Plaats:</label>
+            <label for="PC Plaats">*PC Plaats:</label>
             <input type="text" id="postcode" placeholder="postcode" onblur="postcode()">
-            <input type="text" id="plaats" placeholder="plaats" onblur="postcode()">
+            <input type="text" id="plaats" placeholder="plaats" onblur="plaats()">
         </div>
         <div>
-            <label for="voornaam">telefoon:</label>
+            <label for="telefoon">telefoon:</label>
             <input type="text" id="telefoon" placeholder="telefoon">
         </div>
         <div>
-            <label for="voornaam">Email:</label>
+            <label for="Email">Email:</label>
             <input type="text" id="email" placeholder="email">
         </div>
         <div>
-            <label for="voornaam">geslacht:</label>
+            <label for="geslacht">geslacht:</label>
             <label class="container">Man
                 <input name="geslacht" type="radio">
                 <span class="checkmark"></span>
@@ -44,11 +44,11 @@
               </label>
         </div>
         <div>
-            <label for="voornaam">boyband</label>
+            <label for="boyband">boyband</label>
             <input type="text" id="email" placeholder="email">
         </div>
         <div>
-            <label for="voornaam">Geb.datum:</label>
+            <label for="geb.datum">Geb.datum:</label>
             <input type="text" id="email" placeholder="email">
         </div>
         <div>
@@ -58,28 +58,74 @@
 </body>
 <script>
 
-    function naam()
+    function voornaam()
     {
-      
-       let an = document.getElementById("achternaam");
-       if(an.value == "bonhof")
+    let an = document.getElementById("voornaam");
+       if(an.value.length <3)
        {
-            an.style.backgroundColor = "green";
+            an.style.backgroundColor = "lightcoral";
+       }
+       else
+       {
+            an.style.backgroundColor = "lightgreen";
+       }
+    }
+
+    function achternaam()
+    {
+    let an = document.getElementById("achternaam");
+       if(an.value.length <3)
+       {
+            an.style.backgroundColor = "lightcoral";
+       }
+       else
+       {
+            an.style.backgroundColor = "lightgreen";
+       }
+    }
+
+    function adres()
+    {
+    let an = document.getElementById("adres");
+       if(an.value.length <3)
+       {
+            an.style.backgroundColor = "lightcoral";
+       }
+       else
+       {
+            an.style.backgroundColor = "lightgreen";
        }
     }
 
     function postcode()
     {
-        let postcode = document.getElementById("postcode");
-        if(postcode.value == "")
+    let postcode = document.getElementById("postcode");
+        if(postcode.value.length <6)
         {
-            postcode.style.backgroundColor = "red";
+            postcode.style.backgroundColor = "lightcoral";
         }
         else
         {
-            postcode.style.backgroundColor = "green";
+            postcode.style.backgroundColor = "lightgreen";
 
         }
     }
+
+    function plaats()
+    {
+    let postcode = document.getElementById("plaats");
+        if(postcode.value.length <3)
+        {
+            postcode.style.backgroundColor = "lightcoral";
+        }
+        else
+        {
+            postcode.style.backgroundColor = "lightgreen";
+
+        }
+    }
+
+
+
 </script>
 </html>
