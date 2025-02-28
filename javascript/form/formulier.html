@@ -34,28 +34,37 @@
         <div>
             <label for="geslacht">geslacht:</label>
             <label class="container">Man
-                <input name="geslacht" type="radio">
+                <input name="geslacht" id="geslacht" type="radio" value="Man">
                 <span class="checkmark"></span>
               </label>
         
               <label class="container">Vrouw
-                <input name="geslacht" type="radio">
+                <input name="geslacht" id="geslacht" type="radio" value="Vrouw">
                 <span class="checkmark"></span>
               </label>
         </div>
         <div>
-            <label for="boyband">boyband</label>
-            <input type="text" id="email" placeholder="email">
+            <label for="klas" >klas</label>
+            <select name="subject" id="klas">
+                <option value="SD1A" selected="selected">SD1A</option>
+                <option value="SD1B">SD1B</option>
+              </select>
         </div>
         <div>
-            <label for="geb.datum">Geb.datum:</label>
-            <input type="text" id="email" placeholder="email">
+            <label>
+                Geb.datum: <input type="date" name="geboortedatum" id="geboortedatum">
+            </label>
         </div>
         <div>
-            <button>verstuur</button>
+            <button onclick="plaatstekst()">plaats tekst</button>
+        </div>
+        <div class="output" id="output">
+            Voer de gegevens in
         </div>
     </div>
 </body>
+
+
 <script>
 
     function voornaam()
@@ -124,6 +133,27 @@
 
         }
     }
+
+    function plaatstekst()
+    {
+        let voornaam = document.getElementById("voornaam");
+        let achternaam = document.getElementById("achternaam");
+        let adres = document.getElementById("adres");
+        let postcode = document.getElementById("postcode");
+        let plaats = document.getElementById("plaats");
+        let telefoon = document.getElementById("telefoon");
+        let email = document.getElementById("email");
+        // let geslacht = document.getElementById("geslacht");
+        let geslacht = document.querySelector('input[name="geslacht"]:checked');
+        let klar = document.getElementById("subject");
+        let geboortedatum = document.getElementById("geboortedatum");
+        let outputdiv = document.getElementById('output');
+
+        outputdiv.innerHTML = "Voornaam: " + voornaam.value + "<br> Achternaam: " + achternaam.value + "<br> Adres: " + adres.value
+        + "<br> Postcode: " + postcode.value + "<br> Plaats: " + plaats.value + "<br> Telefoon nummer: " + telefoon.value + "<br> Email: " +
+        email.value + "<br> Geslacht: " + geslacht.value + "<br> Klas: " + klas.value + "<br> Geb.Datum: " + geboortedatum.value
+    }
+
 
 
 
