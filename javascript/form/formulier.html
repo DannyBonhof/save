@@ -10,18 +10,19 @@
     <div id="form">
         <h1>Test formulier</h1>
         <div> 
-            <label for="voornaam">*Naam/achternaam:</label>
-            <input type="text" id="voornaam" placeholder="Voornaam" onblur="voornaam()">
-            <input type="text" id="achternaam" placeholder="Achternaam" onblur="achternaam()">
+            <label for="voornaam">*Voornaam:</label>
+            <input type="text" id="voornaam" placeholder="Voornaam"  onkeyup="fchecknaam()">
+            <label for="achternaam">*Achternaam:</label>
+            <input type="text" id="achternaam" placeholder="Achternaam" onkeyup="fAchternaam()">
         </div>
         <div>
             <label for="adres">*adres:</label>
-            <input type="text" id="adres" placeholder="adres" onblur="adres()">
+            <input type="text" id="adres" placeholder="adres" onkeyup="fAdres()">
         </div>
         <div>
             <label for="PC Plaats">*PC Plaats:</label>
-            <input type="text" id="postcode" placeholder="postcode" onblur="postcode()">
-            <input type="text" id="plaats" placeholder="plaats" onblur="plaats()">
+            <input type="text" id="postcode" placeholder="postcode" onkeyup="fPostcode()">
+            <input type="text" id="plaats" placeholder="plaats" onkeyup="fPlaats()">
         </div>
         <div>
             <label for="telefoon">telefoon:</label>
@@ -34,7 +35,7 @@
         <div>
             <label for="geslacht">geslacht:</label>
             <label class="container">Man
-                <input name="geslacht" id="geslacht" type="radio" value="Man">
+                <input name="geslacht" id="geslacht" checked type="radio" value="Man">
                 <span class="checkmark"></span>
               </label>
         
@@ -56,7 +57,7 @@
             </label>
         </div>
         <div>
-            <button onclick="plaatstekst()">plaats tekst</button>
+            <button onclick="fPlaatstekst()">plaats tekst</button>
         </div>
         <div class="output" id="output">
             Voer de gegevens in
@@ -67,74 +68,134 @@
 
 <script>
 
-    function voornaam()
+    let boolvoornaam = 0;
+    let boolachternaam = 0;
+    let booladres = 0;
+    let boolpostcode = 0;
+    let boolplaats = 0;
+
+
+    let voornaam = document.getElementById("voornaam");
+    let achternaam = document.getElementById("achternaam");
+    let nameData = [
+        { naam:"Maarten" , achtern:"Van Dijk" },
+        { naam:"Bas" , achtern:"Bauwknegt"},
+        { naam:"Danny" , achtern:"Bonhof"}
+    ];
+
+    function fchecknaam()
     {
-    let an = document.getElementById("voornaam");
-       if(an.value.length <3)
-       {
-            an.style.backgroundColor = "lightcoral";
-       }
-       else
-       {
-            an.style.backgroundColor = "lightgreen";
-       }
+        for (let i = 0; i < nameData.length; i++) {
+            const j = nameData[i];
+            
+            if (voornaam.value == j.naam) 
+            {
+                console.log(j.naam,j.achtern)
+                achternaam.value = j.achtern
+            }
+            else if (voornaam.value.length <3 || /\d/.test(voornaam.value))
+            {
+                voornaam.style.backgroundColor = "lightcoral";
+                boolvoornaam = 0;
+            }
+            else if (voornaam.value.length >2 || /\d/.test(voornaam.value))
+            {
+                voornaam.style.backgroundColor = "lightgreen";
+                boolvoornaam = 1;
+            }
+            else if (achternaam.value.length <3 || /\d/.test(achternaam.value))
+            {
+                achternaam.style.backgroundColor = "lightcoral";
+                boolachternaam = 0;
+            }
+            else if (achternaam.value.length >3 || /\d/.test(achternaam.value))
+            {
+                achternaam.style.backgroundColor = "lightgreen";
+                boolachternaam = 1;
+            }
+        }
     }
 
-    function achternaam()
+
+    // function fVoornaam()
+    // {
+    // let an = document.getElementById("voornaam");
+    //    if(an.value.length <3 || /\d/.test(an.value))
+    //    {
+    //         an.style.backgroundColor = "lightcoral";
+    //         boolvoornaam = 0;
+    //    }
+    //    else
+    //    {
+    //         an.style.backgroundColor = "lightgreen";
+    //         boolvoornaam = 1;
+    //    }
+    // }
+
+    function fAchternaam()
     {
     let an = document.getElementById("achternaam");
-       if(an.value.length <3)
+       if(an.value.length <3 || /\d/.test(an.value))
        {
             an.style.backgroundColor = "lightcoral";
+            boolachternaam = 0;
        }
        else
        {
             an.style.backgroundColor = "lightgreen";
+            boolachternaam = 1;
        }
     }
 
-    function adres()
+    function fAdres()
     {
     let an = document.getElementById("adres");
        if(an.value.length <3)
        {
             an.style.backgroundColor = "lightcoral";
+            booladres = 0;
        }
        else
        {
             an.style.backgroundColor = "lightgreen";
+            booladres = 1;
        }
     }
 
-    function postcode()
+    function fPostcode()
     {
     let postcode = document.getElementById("postcode");
         if(postcode.value.length <6)
         {
             postcode.style.backgroundColor = "lightcoral";
+            boolpostcode = 0;
         }
         else
         {
             postcode.style.backgroundColor = "lightgreen";
+            boolpostcode = 1;
 
         }
     }
 
-    function plaats()
+    function fPlaats()
     {
     let postcode = document.getElementById("plaats");
-        if(postcode.value.length <3)
+        if(postcode.value.length <3 || /\d/.test(postcode.value))
         {
             postcode.style.backgroundColor = "lightcoral";
+            boolplaats = 0;
         }
         else
         {
             postcode.style.backgroundColor = "lightgreen";
+            boolplaats = 1;
 
         }
     }
+    
 
-    function plaatstekst()
+    function fPlaatstekst()
     {
         let voornaam = document.getElementById("voornaam");
         let achternaam = document.getElementById("achternaam");
@@ -145,13 +206,23 @@
         let email = document.getElementById("email");
         // let geslacht = document.getElementById("geslacht");
         let geslacht = document.querySelector('input[name="geslacht"]:checked');
-        let klar = document.getElementById("subject");
+        let klas = document.getElementById("klas");
         let geboortedatum = document.getElementById("geboortedatum");
         let outputdiv = document.getElementById('output');
 
+        if (boolvoornaam == 1 && boolachternaam == 1 && booladres == 1 && boolpostcode == 1 && boolplaats == 1) 
+
+        {
         outputdiv.innerHTML = "Voornaam: " + voornaam.value + "<br> Achternaam: " + achternaam.value + "<br> Adres: " + adres.value
         + "<br> Postcode: " + postcode.value + "<br> Plaats: " + plaats.value + "<br> Telefoon nummer: " + telefoon.value + "<br> Email: " +
-        email.value + "<br> Geslacht: " + geslacht.value + "<br> Klas: " + klas.value + "<br> Geb.Datum: " + geboortedatum.value
+        email.value + "<br> Geslacht: " + geslacht.value + "<br> Klas: " + klas.value + "<br> Geb.Datum: " + geboortedatum.value;
+        }
+
+        else
+        {
+            outputdiv.innerHTML = "gegevens zijn incorrect";
+        }
+
     }
 
 
