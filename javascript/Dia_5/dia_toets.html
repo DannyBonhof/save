@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1>Log in</h1>
+    </div>
+    <div>
+        <label for="Gebruikersnaam">Gebruikersnaam:</label>
+        <input type="text" id="Gebruikersnaam" placeholder="Gebruikersnaam" onkeyup="fChecknaam()">
+        <label for="Wachtwoord">Wachtwoord:</label>
+        <input type="text" id="Wachtwoord" placeholder="Wachtwoord" onkeyup="fCheckwachtwoord()">
+    </div>
+    <div>
+        <button onclick="fInloggen()">Inloggen</button>
+    </div>
+    <div id="jsonManier"></div>
+
+</body>
+
+<script>
+    let users = [
+        { "voornaam": "Chris", "wachtwoord": "test1" },
+        { "voornaam": "Kevin", "wachtwoord": "test2" },
+        { "voornaam": "Koos", "wachtwoord": "test3" },
+        { "voornaam": "Marloes", "wachtwoord": "test4" },
+        { "voornaam": "Ronald", "wachtwoord": "test5" }
+    ];
+
+    function fInloggen() {
+
+        let gnaam = document.getElementById("Gebruikersnaam");
+        console.log(gnaam.value + " probeert in te loggen.");
+
+        // const gebruikersnaam = prompt("Voer je gebruikersnaam in:");
+        // const wachtwoord = prompt("Voer je wachtwoord in:");
+
+        let user = users.find(user => user.voornaam === voornaam);
+        let password = users.find(password => user.wachtwoord === wachtwoord);
+
+        if (user) {
+            console.log("Inloggen gelukt! Welkom, " + voornaam + "!");
+        } else {
+            console.log("Foutieve gebruikersnaam of wachtwoord.");
+        }
+    }
+
+
+
+
+    function fChecknaam() {
+        let an = document.getElementById("Gebruikersnaam");
+        if (an.value.length < 2 || /\d/.test(an.value)) {
+            an.style.backgroundcolor = "lightcoral";
+        }
+        else {
+            an.style.backgroundColor = "lightgreen";
+        }
+    }
+
+    function fCheckwachtwoord() {
+        let an = document.getElementById("Wachtwoord");
+        if (an.value.length < 10) {
+            an.style.backgroundColor = "lightcoral";
+        }
+        else {
+            an.style.backgroundColor = "lightgreen";
+        }
+    }
+</script>
+
+
+</html>

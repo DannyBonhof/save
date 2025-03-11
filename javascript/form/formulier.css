@@ -1,9 +1,34 @@
+#main
+{   
+    display: flex;
+    width: 800px;
+}
+
+#main label
+{
+    padding: 3px;
+}
+
+
 #form{
     border: solid 1px black;
-    display: flex;
-    flex-wrap: wrap;
-    position: absolute;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* position: absolute; */
+    /* flex-direction: column; */
+    background-color: lightgray;
+    padding: 6px;
+    width: 195px;
+    
+}
+
+#output{
+    border: solid 1px black;
+    width: 250px;
+    height: 200px;
+    margin-left: 5px;
+    padding: 6px;
+    background-color: lightgray;
 }
 
 h2{

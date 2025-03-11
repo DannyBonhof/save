@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>hier onder komt een kerstboom</h1>
+<div id="demo">
+  <button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+
+</body>
+
+<script>
+    function loadDoc() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("demo").innerHTML = this.responseText;
+            // document.getElementById("boom").src = this.responseURL;
+            }
+        xhttp.open("GET", "ajax_info.html", true);
+        xhttp.send();
+        }
+
+
+</script>
+</html>
