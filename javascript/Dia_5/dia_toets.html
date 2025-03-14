@@ -8,54 +8,105 @@
 </head>
 
 <body>
-    <div>
-        <h1>Log in</h1>
-    </div>
-    <div>
-        <label for="Gebruikersnaam">Gebruikersnaam:</label>
-        <input type="text" id="Gebruikersnaam" placeholder="Gebruikersnaam" onkeyup="fChecknaam()">
-        <label for="Wachtwoord">Wachtwoord:</label>
-        <input type="text" id="Wachtwoord" placeholder="Wachtwoord" onkeyup="fCheckwachtwoord()">
+    <div id="header">
+        <h1>Inloggen</h1>
+    <div id="login">
+        <label for="Gebruikersnaam">Gebruikersnaam:</label><input type="text" id="username" placeholder="Gebruikersnaam" onkeyup="fChecknaam()">
+        <label for="Wachtwoord">Wachtwoord:</label><input type="text" id="password" placeholder="Wachtwoord" onkeyup="fCheckwachtwoord()">
     </div>
     <div>
         <button onclick="fInloggen()">Inloggen</button>
     </div>
-    <div id="jsonManier"></div>
+        <div id="jsonManier"></div>
+        <div id="gebruikers"></div>
+    </div>
 
 </body>
 
-<script>
-    let users = [
-        { "voornaam": "Chris", "wachtwoord": "test1" },
-        { "voornaam": "Kevin", "wachtwoord": "test2" },
-        { "voornaam": "Koos", "wachtwoord": "test3" },
-        { "voornaam": "Marloes", "wachtwoord": "test4" },
-        { "voornaam": "Ronald", "wachtwoord": "test5" }
-    ];
-
-    function fInloggen() {
-
-        let gnaam = document.getElementById("Gebruikersnaam");
-        console.log(gnaam.value + " probeert in te loggen.");
-
-        // const gebruikersnaam = prompt("Voer je gebruikersnaam in:");
-        // const wachtwoord = prompt("Voer je wachtwoord in:");
-
-        let user = users.find(user => user.voornaam === voornaam);
-        let password = users.find(password => user.wachtwoord === wachtwoord);
-
-        if (user) {
-            console.log("Inloggen gelukt! Welkom, " + voornaam + "!");
-        } else {
-            console.log("Foutieve gebruikersnaam of wachtwoord.");
-        }
+<style>
+    #header {
+        justify-items: center;
+    }
+    button {
+        margin-top: 10px;
+    }
+    
+    #login {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
     }
 
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5
+    }
+
+</style>
 
 
+<script>
+    let users = [
+        { "username": "Chris",   "password": "Deltion12345!!"},
+        { "username": "Kevin",   "password": "Deltion45678!!"},
+        { "username": "Koos",    "password": "DeltionX12345!"},
+        { "username": "Marloes", "password": "DeltionY45678!"},
+        { "username": "Ronald",  "password": "DeltionZ12345!"}
+    ];
 
-    function fChecknaam() {
-        let an = document.getElementById("Gebruikersnaam");
+    function fInloggen() 
+    {
+
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        let berichtDiv = document.getElementById("jsonManier");
+        console.log(username + " probeert in te loggen.");
+
+        let userFound = users.some(user => user["username"] === username && user["password"] === password);
+
+        if (userFound) 
+        {
+            berichtDiv.textContent = "inloggen gelukt";
+            console.log("inloggen gelukt");
+            berichtDiv.style.color = "green";
+            tekst = "<table><tr><th>Gebruikersnaam</th><th>Wachtwoord</th></tr>";
+            
+            for (let i = 0; i < users.length; i++)
+            {
+                const user = users[i];
+                tekst += `<tr><td>${users[i].username}</td><td onmouseover="hover('${users[i].password}')">${users[i].password}</td></tr>`;
+                gebruikers.innerHTML = tekst;
+            }
+            } 
+            else 
+            {
+                berichtDiv.textContent = "inloggen mislukt";
+                console.log("inloggen mislukt");
+                berichtDiv.style.color = "red";
+            }
+    }
+
+    function fChecknaam() 
+    {
+        let an = document.getElementById("username");
         if (an.value.length < 2 || /\d/.test(an.value)) {
             an.style.backgroundcolor = "lightcoral";
         }
@@ -64,8 +115,9 @@
         }
     }
 
-    function fCheckwachtwoord() {
-        let an = document.getElementById("Wachtwoord");
+    function fCheckwachtwoord() 
+    {
+        let an = document.getElementById("password");
         if (an.value.length < 10) {
             an.style.backgroundColor = "lightcoral";
         }
@@ -73,6 +125,11 @@
             an.style.backgroundColor = "lightgreen";
         }
     }
+    
+    function hover(password) {
+        console.log("wachtwoord: "+ password);
+    }
+    
 </script>
 
 
