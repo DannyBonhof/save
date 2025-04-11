@@ -107,8 +107,8 @@
     function fChecknaam() 
     {
         let an = document.getElementById("username");
-        if (an.value.length < 2 || /\d/.test(an.value)) {
-            an.style.backgroundcolor = "lightcoral";
+        if (an.value.length < 3 || /\d/.test(an.value)) {
+            an.style.backgroundColor = "lightcoral";
         }
         else {
             an.style.backgroundColor = "lightgreen";
